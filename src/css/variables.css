@@ -1,5 +1,19 @@
 :root {
   /*==== colors ====*/
+  --c-white: #fff;
   --c-bg-app: #bbb;
-  --c-bg-page: #fff;
+  --c-bg-page: var(--c-white);
+  --c-text-main: #222;
+  --c-text-head: #666;
+  --c-button: #42a5f5;
+  --c-button-dark: #005b9f;
+  --c-error: #b71c1c;
+
+  /*==== box shadow ====*/
+  --box-shadow-page: 4px 4px 8px 2px rgba(0, 0, 0, 0.2);
+  --box-shadow-button: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  --box-shadow-button-up: 0 8px 4px 0 rgba(0, 0, 0, 0.2);
+
+  /*==== transition ====*/
+  --transition-default: all 150ms ease-in-out;
 }

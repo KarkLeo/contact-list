@@ -1,0 +1,74 @@
+.cl-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cl-item__link {
+  position: relative;
+
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  grid-column-gap: 8px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+
+  color: var(--c-white);
+  font-size: 16px;
+  text-decoration: none;
+
+  background-color: var(--c-button);
+  border-radius: 4px;
+  box-shadow: var(--box-shadow-button);
+  transition: var(--transition-default);
+}
+.cl-item__link:hover {
+  background-color: var(--c-button-dark);
+  box-shadow: var(--box-shadow-button-up);
+}
+
+.cl-item__name {
+  font-size: 18px;
+  font-weight: 600;
+  word-break: break-word; /*==== todo need for large input ====*/
+}
+
+.cl-item__description {
+  font-weight: 300;
+}
+
+/*==== button ====*/
+
+.cl-item__button {
+  flex-shrink: 0;
+  margin: 0 0 0 20px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+.cl-item__button:hover {
+  box-shadow: var(--box-shadow-button);
+}
+
+.cl-item__button-icon {
+  width: 24px;
+  height: 24px;
+
+  fill: var(--c-text-head);
+
+  transition: var(--transition-default);
+}
+.cl-item__button:hover .cl-item__button-icon {
+  fill: var(--c-error);
+}

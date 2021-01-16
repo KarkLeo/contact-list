@@ -1,0 +1,26 @@
+.contact-list {
+  width: 100%;
+}
+
+.contact-list__head {
+  margin: 0 0 18px;
+  padding: 0 0 16px;
+  box-sizing: border-box;
+
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--c-text-head);
+
+  border-bottom: 1px solid var(--c-bg-app);
+}
+
+.contact-list__body {
+  margin: 18px 0;
+  padding: 0;
+
+  list-style: none;
+}
+.contact-list__item {
+  padding: 0;
+  margin: 0 0 16px;
+}

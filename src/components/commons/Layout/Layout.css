@@ -1,0 +1,22 @@
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 40px;
+  box-sizing: border-box;
+
+  background-color: var(--c-bg-app);
+}
+
+.layout__body {
+  width: 100%;
+  max-width: 800px;
+  padding: 60px 40px;
+  box-sizing: border-box;
+
+  background-color: var(--c-bg-page);
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.2);
+}

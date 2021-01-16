@@ -28,4 +28,4 @@ package-lock.json
 
 
 .eslintcache
-.idea
+/.idea

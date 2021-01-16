@@ -1,0 +1,37 @@
+/*==== text ====*/
+.text {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--c-text-main);
+  line-height: 1.4;
+}
+
+/*==== buttons ====*/
+.btn {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  color: var(--c-white);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+
+  background-color: var(--c-button);
+  border-radius: 4px;
+  box-shadow: var(--box-shadow-button);
+  transition: var(--transition-default);
+}
+.btn:hover {
+  background-color: var(--c-button-dark);
+  box-shadow: var(--box-shadow-button-up);
+}
+
+/*==== page ====*/
+.page__head {
+  margin: -8px 0 18px;
+  display: flex;
+}

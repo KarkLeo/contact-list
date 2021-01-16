@@ -1,3 +1,5 @@
+import { contactAPI } from "../../api/api";
+
 const SET_CURRENT_CONTACT = "current-contact/SET-CURRENT-CONTACT";
 
 const initState = {
@@ -24,5 +26,10 @@ export const setCurrentContact = (contact) => ({
   type: SET_CURRENT_CONTACT,
   contact,
 });
+
+export const fetchCurrentContact = (id) => async (dispatch) => {
+  const res = await contactAPI.getContactById(id);
+  if (res.status === 200) dispatch(setCurrentContact(res.data));
+};
 
 export default currentContactReducer;

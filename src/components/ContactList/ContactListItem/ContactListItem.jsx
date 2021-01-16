@@ -3,6 +3,7 @@ import "./ContactListItem.css";
 import { NavLink } from "react-router-dom";
 import Icon from "../../commons/Sprite/Icon";
 import translate from "../../../utils/translate";
+import DeleteButton from "../../DeleteButton/DeleteButton";
 
 const ContactListItem = ({ id, first_name, last_name, gender, birth_date }) => {
   return (
@@ -14,9 +15,7 @@ const ContactListItem = ({ id, first_name, last_name, gender, birth_date }) => {
         <span className="cl-item__description">{birth_date}</span>
       </NavLink>
 
-      <button className="cl-item__button">
-        <Icon iconId="delete" className="cl-item__button-icon" />
-      </button>
+      <DeleteButton />
     </div>
   );
 };

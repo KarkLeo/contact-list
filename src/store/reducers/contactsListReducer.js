@@ -21,7 +21,8 @@ const contactListReducer = (state = initialState, action) => {
 export const setContactList = (list) => ({ type: SET_CONTACTS_LIST, list });
 
 export const fetchContactList = () => async (dispatch) => {
-  dispatch(setContactList(await contactAPI.getList()));
+  const res = await contactAPI.getList();
+  if (res.status === 200) dispatch(setContactList(res.data));
 };
 
 export default contactListReducer;

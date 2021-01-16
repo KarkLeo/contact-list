@@ -5,8 +5,6 @@
 }
 
 .cl-item__link {
-  position: relative;
-
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr;
@@ -36,39 +34,4 @@
 
 .cl-item__description {
   font-weight: 300;
-}
-
-/*==== button ====*/
-
-.cl-item__button {
-  flex-shrink: 0;
-  margin: 0 0 0 20px;
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: transparent;
-  border: none;
-  border-radius: 20px;
-  outline: none;
-  cursor: pointer;
-  transition: var(--transition-default);
-}
-.cl-item__button:hover {
-  box-shadow: var(--box-shadow-button);
-}
-
-.cl-item__button-icon {
-  width: 24px;
-  height: 24px;
-
-  fill: var(--c-text-head);
-
-  transition: var(--transition-default);
-}
-.cl-item__button:hover .cl-item__button-icon {
-  fill: var(--c-error);
 }

@@ -19,4 +19,15 @@ export const contactAPI = {
       return err;
     }
   },
+  async updateContactById(id, data) {
+    try {
+      let res = await axios.put(
+        `${process.env.REACT_APP_API_URL}/v1/contact/${id}`,
+        data
+      );
+      return res;
+    } catch (err) {
+      return err;
+    }
+  },
 };

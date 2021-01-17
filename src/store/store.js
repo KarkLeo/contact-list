@@ -3,12 +3,12 @@ import thunkMiddleware from "redux-thunk";
 
 import contactListReducer from "./reducers/contactsListReducer";
 import currentContactReducer from "./reducers/currentContactReducer";
-import newContactReducer from "./reducers/newContactReducer";
+import formContactReducer from "./reducers/formContactReducer";
 
 let reducer = combineReducers({
   contact_list: contactListReducer,
   current_contact: currentContactReducer,
-  new_contact: newContactReducer,
+  form_contact: formContactReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));

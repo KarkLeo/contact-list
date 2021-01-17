@@ -6,6 +6,7 @@ import Icon from "../commons/Sprite/Icon";
 import { useDispatch } from "react-redux";
 import { fetchCurrentContact } from "../../store/reducers/currentContactReducer";
 import DeleteButton from "../DeleteButton/DeleteButton";
+import translate from "../../utils/translate";
 
 const Detail = ({ id }) => {
   const contact = useSelector((state) => state.current_contact);
@@ -39,7 +40,7 @@ const Detail = ({ id }) => {
       <div className="c-detail__body">
         <div className="text">{contact.birth_date}</div>
         <div className="text">{contact.job}</div>
-        <div className="text">{contact.gender}</div>
+        <div className="text">{translate[contact.gender]}</div>
         <div className="text">{contact.biography}</div>
       </div>
     </div>

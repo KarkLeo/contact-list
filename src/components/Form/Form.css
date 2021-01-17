@@ -1,0 +1,64 @@
+/*==== form head ====*/
+.form_head {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 16px;
+  margin: 0 0 18px;
+  box-sizing: border-box;
+
+  border-bottom: 1px solid var(--c-bg-app);
+}
+
+.form__title {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--c-text-head);
+}
+.form__button-row {
+  display: flex;
+  margin-left: auto;
+}
+
+/*==== fields grid ====*/
+.fields-grid {
+  margin: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.fields-grid__item--first_name {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.fields-grid__item--last_name {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.fields-grid__item--is_active {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.fields-grid__item--birth_date {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.fields-grid__item--job {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}
+
+.fields-grid__item--gender {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.fields-grid__item--biography {
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+}

@@ -5,15 +5,13 @@ import { useDispatch } from "react-redux";
 import { fetchContactList } from "../../store/reducers/contactsListReducer";
 import ContactListItem from "./ContactListItem/ContactListItem";
 
-const ContactList = (props) => {
+const ContactList = () => {
   const list = useSelector((state) => state.contact_list.list);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchContactList());
   }, []);
-
-  console.log(list);
 
   return (
     <div className="contact-list">

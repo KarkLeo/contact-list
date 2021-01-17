@@ -22,12 +22,22 @@
 
   background-color: var(--c-button);
   border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
   box-shadow: var(--box-shadow-button);
   transition: var(--transition-default);
 }
 .btn:hover {
   background-color: var(--c-button-dark);
   box-shadow: var(--box-shadow-button-up);
+}
+
+.btn:disabled {
+  background-color: var(--c-bg-app);
+  box-shadow: none;
+  cursor: auto;
+  pointer-events: none;
 }
 
 /*==== page ====*/

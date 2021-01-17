@@ -56,6 +56,6 @@ export default [
     label: "Активен",
     initValue: false,
     type: "checkbox",
-    required: true,
+    required: false,
   },
 ];

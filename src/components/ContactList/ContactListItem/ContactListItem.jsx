@@ -1,7 +1,6 @@
 import React from "react";
 import "./ContactListItem.css";
 import { NavLink } from "react-router-dom";
-import Icon from "../../commons/Sprite/Icon";
 import translate from "../../../utils/translate";
 import DeleteButton from "../../DeleteButton/DeleteButton";
 

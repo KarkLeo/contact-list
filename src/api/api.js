@@ -22,7 +22,7 @@ export const contactAPI = {
   async updateContactById(id, data) {
     try {
       let res = await axios.put(
-        `${process.env.REACT_APP_API_URL}/v1/contact/1000${id}`,
+        `${process.env.REACT_APP_API_URL}/v1/contact/${id}`,
         data
       );
       return res;

@@ -17,8 +17,11 @@ const ContactEdit = ({ match }) => {
   };
   return (
     <Layout>
-      <div className="page__head">
-        <NavLink to={`/contact/${match.params.id}`} className="btn">
+      <div className="page-head__nav">
+        <NavLink
+          to={`/contact/${match.params.id}`}
+          className="btn btn--outline"
+        >
           Назад
         </NavLink>
       </div>

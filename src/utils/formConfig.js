@@ -18,7 +18,7 @@ export default [
   {
     name: "birth_date",
     label: "Дата рождения",
-    initValue: null,
+    initValue: "",
     type: "date",
     required: true,
     maxLength: 256,
@@ -27,7 +27,7 @@ export default [
   {
     name: "gender",
     label: "Пол",
-    initValue: null,
+    initValue: "",
     type: "select",
     options: [
       { value: "male", label: "мужчина" },

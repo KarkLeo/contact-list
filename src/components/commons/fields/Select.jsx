@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Select = ({
   type,
@@ -14,6 +14,10 @@ const Select = ({
   isError,
   errorMessage,
 }) => {
+  useEffect(() => {
+    onValidate();
+  }, [value]);
+
   return (
     <div className={`fields-grid__item fields-grid__item--${name}`}>
       <label className="field">
@@ -28,7 +32,12 @@ const Select = ({
           onChange={onChangeValue}
           onFocus={onTouchChange}
           onBlur={onValidate}
+          placeholder={label}
+          defaultValue={""}
         >
+          <option value="" disabled>
+            {label}
+          </option>
           {options.map((i) => (
             <option key={i.value} value={i.value}>
               {i.label}

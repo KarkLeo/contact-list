@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Icon from "../Sprite/Icon";
 
 const Checkbox = ({
@@ -15,7 +15,9 @@ const Checkbox = ({
   errorMessage,
 }) => {
   const toggleCheckbox = () => onChangeValue({ target: { value: !value } });
-
+  useEffect(() => {
+    onValidate();
+  }, [value]);
   return (
     <div className={`fields-grid__item fields-grid__item--${name}`}>
       <label>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Input = ({
   type,
@@ -14,6 +14,9 @@ const Input = ({
   isError,
   errorMessage,
 }) => {
+  useEffect(() => {
+    onValidate();
+  }, [value]);
   return (
     <div className={`fields-grid__item fields-grid__item--${name}`}>
       <label className="field">

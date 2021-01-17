@@ -35,6 +35,9 @@
 .field__input:focus {
   border-color: var(--c-button);
 }
+.field__input:focus + .field__error {
+  display: none;
+}
 
 .field__input--area {
   height: 120px;

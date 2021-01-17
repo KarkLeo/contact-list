@@ -6,6 +6,5 @@ export default (fields) => {
     hasError = hasError || i.isError;
     isNotAllOriginal = isNotAllOriginal || i.value !== i.startValue;
   });
-
   return hasError || !isNotAllOriginal;
 };

@@ -1,22 +1,3 @@
-.c-detail_head {
-  display: flex;
-  align-items: flex-end;
-  padding: 0 0 16px;
-  margin: 0 0 18px;
-  box-sizing: border-box;
-
-  border-bottom: 1px solid var(--c-bg-app);
-}
-
-.c-detail__name {
-  margin: 0;
-
-  font-size: 28px;
-  font-weight: 300;
-  color: var(--c-text-head);
-  word-break: break-word; /*==== todo need remove this prop ====*/
-}
-
 /*==== status ====*/
 .c-detail__status {
   flex-shrink: 0;
@@ -30,12 +11,6 @@
 }
 .c-detail__status--uncheck {
   fill: var(--c-error);
-}
-
-/*==== button row ====*/
-.c-detail__button-row {
-  display: flex;
-  margin-left: auto;
 }
 
 /*==== body ====*/

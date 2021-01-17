@@ -8,13 +8,23 @@ import { changeField } from "../../store/reducers/formContactReducer";
 import validateField from "../../utils/validateField";
 import validateForm from "../../utils/validateForm";
 import "./Form.css";
+import { cleanInitValues } from "../../store/reducers/formContactReducer";
+import { useHistory } from "react-router";
 
 const Form = ({ id, title, submit }) => {
   const form = useSelector((state) => state.form_contact.fields);
   const dispatch = useDispatch();
+  let history = useHistory();
 
   useEffect(() => {
-    dispatch(fetchInitValue(id));
+    const fetchAndRedirect = async () => {
+      if (id) {
+        if (await dispatch(fetchInitValue(id))) history.push("/");
+      } else {
+        dispatch(cleanInitValues());
+      }
+    };
+    fetchAndRedirect();
   }, [id]);
 
   const onChangeValue = (e, field) => {
@@ -32,9 +42,9 @@ const Form = ({ id, title, submit }) => {
   return (
     <div className="form">
       <form onSubmit={onSubmitForm}>
-        <div className="form_head">
-          <h1 className="form__title">{title}</h1>
-          <div className="form__button-row">
+        <div className="page-head">
+          <h1 className="page-head__title">{title}</h1>
+          <div className="page-head__button-row">
             <button type="submit" className="btn" disabled={validateForm(form)}>
               Сохранить
             </button>

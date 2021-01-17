@@ -22,7 +22,28 @@ export const contactAPI = {
   async updateContactById(id, data) {
     try {
       let res = await axios.put(
-        `${process.env.REACT_APP_API_URL}/v1/contact/${id}`,
+        `${process.env.REACT_APP_API_URL}/v1/contact/1000${id}`,
+        data
+      );
+      return res;
+    } catch (err) {
+      return err;
+    }
+  },
+  async deleteContactById(id) {
+    try {
+      let res = await axios.delete(
+        `${process.env.REACT_APP_API_URL}/v1/contact/${id}`
+      );
+      return res;
+    } catch (err) {
+      return err;
+    }
+  },
+  async createContact(data) {
+    try {
+      let res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/v1/contact/`,
         data
       );
       return res;

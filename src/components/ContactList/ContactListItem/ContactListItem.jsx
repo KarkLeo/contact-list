@@ -15,7 +15,7 @@ const ContactListItem = ({ id, first_name, last_name, gender, birth_date }) => {
         <span className="cl-item__description">{birth_date}</span>
       </NavLink>
 
-      <DeleteButton />
+      <DeleteButton id={id} />
     </div>
   );
 };

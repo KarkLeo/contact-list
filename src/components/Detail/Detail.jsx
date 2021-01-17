@@ -7,19 +7,24 @@ import { useDispatch } from "react-redux";
 import { fetchCurrentContact } from "../../store/reducers/currentContactReducer";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import translate from "../../utils/translate";
+import { useHistory } from "react-router";
 
 const Detail = ({ id }) => {
   const contact = useSelector((state) => state.current_contact);
   const dispatch = useDispatch();
+  let history = useHistory();
 
   useEffect(() => {
-    dispatch(fetchCurrentContact(id));
+    const fetchAndRedirect = async () => {
+      if (await dispatch(fetchCurrentContact(id))) history.push("/");
+    };
+    fetchAndRedirect();
   }, [id]);
 
   return (
     <div className="c-detail">
-      <div className="c-detail_head">
-        <h1 className="c-detail__name">
+      <div className="page-head">
+        <h1 className="page-head__title">
           {contact.first_name} {contact.last_name}
         </h1>
         <Icon
@@ -30,11 +35,11 @@ const Detail = ({ id }) => {
               : "c-detail__status--uncheck"
           }`}
         />
-        <div className="c-detail__button-row">
+        <div className="page-head__button-row">
           <NavLink to={`/contact/${contact.id}/edit`} className="btn">
             Редактировать
           </NavLink>
-          <DeleteButton />
+          <DeleteButton id={contact.id} />
         </div>
       </div>
       <div className="c-detail__body">

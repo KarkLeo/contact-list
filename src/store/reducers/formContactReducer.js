@@ -3,6 +3,7 @@ import formConfig from "../../utils/formConfig";
 import validateField from "../../utils/validateField";
 import prepareFormData from "../../utils/prepareFormData";
 import { setCurrentContact } from "./currentContactReducer";
+import { setErrorMessage } from "./errorMessageReducer";
 
 const CLEAN_INIT_VALUES = "form-contact/CLEAN_INIT-VALUES";
 const SET_INIT_VALUES = "form-contact/SET_INIT-VALUES";
@@ -17,15 +18,19 @@ const formContactReducer = (state = initState, action) => {
     case CLEAN_INIT_VALUES:
       return {
         ...state,
-        values: {
-          first_name: "",
-          last_name: "",
-          birth_date: null,
-          gender: null,
-          job: "",
-          biography: "",
-          is_active: false,
-        },
+        fields: formConfig.map((i) =>
+          validateField(
+            {
+              name: i.name,
+              value: i.initValue,
+              startValue: i.initValue,
+              isTouch: false,
+              isError: false,
+              errorMessage: "",
+            },
+            i
+          )
+        ),
       };
     case SET_INIT_VALUES:
       return { ...state, fields: action.fields };
@@ -48,27 +53,33 @@ export const changeField = (field) => ({ type: CHANGE_FIELD, field });
 export const fetchInitValue = (id) => async (dispatch, getState) => {
   const current_contact = getState().current_contact;
   let contact = {};
-  let fields = [];
 
-  if (id === current_contact.id) contact = current_contact;
+  if (id == current_contact.id) contact = current_contact;
   else {
     const res = await contactAPI.getContactById(id);
     if (res.status === 200) contact = res.data;
+    else {
+      dispatch(setErrorMessage(res.toJSON().message));
+      return true;
+    }
   }
 
-  formConfig.forEach((i) => {
-    fields.push({
-      name: i.name,
-      value: contact[i.name],
-      startValue: contact[i.name],
-      isTouch: false,
-      isError: false,
-      errorMessage: "",
-    });
-  });
-
   dispatch(
-    setInitValues(fields.map((i, n) => validateField(i, formConfig[n])))
+    setInitValues(
+      formConfig.map((i) =>
+        validateField(
+          {
+            name: i.name,
+            value: contact[i.name],
+            startValue: contact[i.name],
+            isTouch: false,
+            isError: false,
+            errorMessage: "",
+          },
+          i
+        )
+      )
+    )
   );
 };
 
@@ -80,6 +91,19 @@ export const sendUpdateContact = (userId) => async (dispatch, getState) => {
     dispatch(fetchInitValue(res.data.id));
     return true;
   } else {
+    dispatch(setErrorMessage(res.toJSON().message));
+    return false;
+  }
+};
+
+export const sentNewContact = () => async (dispatch, getState) => {
+  const fields = getState().form_contact.fields;
+  let res = await contactAPI.createContact(prepareFormData(fields));
+  if (res.status === 201) {
+    dispatch(cleanInitValues());
+    return true;
+  } else {
+    dispatch(setErrorMessage(res.toJSON().message));
     return false;
   }
 };
